@@ -121,7 +121,57 @@ c = tmp;
 
 - i1 = 3
 - i2 = 0
-- f1 = 
+
+-----------------------------------------------
+# CHAPITRE 2 :
+
+## exercice 1 : 
+
+### int i = 233 , j = 135;
+    float a = 335.5f , b = 20.5f;
+    char R = 'R', T = 'T' ;
+
+
+## réponses : 
+
+- 223
+- 335.5 + 223 - 135
+- 20.5 , 6887.75/100
+- R , T
+
+## Suite voir exercice.java
+# Exercice 2.3 : 
+
+                  // Exercice champitre 2 , 2.2 :
+            // double x = 4.0, y=2;
+            //  System.out.println("Racine carré de " + x + " = " + y);
+            // System.out.print(x + " a la puissance " + y + " = " +(x * x));
+       /* double x = 9, y=3;
+        System.out.println("Racine carre de "+ x + " = " + Math.sqrt(x));
+        System.out.println(x + " a la puisance "+ y + " = " + Math.pow(x,y)); */
+         int x , y;
+//        Scanner lectureClavier  = new Scanner(System.in);
+//        System.out.println("Entrez la valeur de x:");
+//        x = lectureClavier.nextInt();
+//        System.out.println("Entrez la valeur de y:");
+//        y = lectureClavier.nextInt();
+//        System.out.println("Entrez la valeur de x:");
+//        x = lectureClavier.nextInt();
+//        x = x + y; // 7
+//        System.out.println(" x = " + x); // 7
+//        System.out.println("y = " + y); // 3
+//        int franc;
+//        double  conversion,resultat;
+//        Scanner lectureClavier = new Scanner(System.in);
+//        lectureClavier.useLocale(Locale.US);
+//        System.out.println("Entrez le nombre de franc");
+//        franc = lectureClavier.nextInt();
+//        System.out.println("entrez le taux de conversion : ");
+//        conversion = lectureClavier.nextDouble();
+//        System.out.println(" nous allons convertir " + franc + " franc , au taux suivant : " + conversion);
+//        resultat = franc / conversion;
+//        System.out.print("vous avez desormais :" + String.format("%.2f", resultat)+ " € ");
+
 
 
 
