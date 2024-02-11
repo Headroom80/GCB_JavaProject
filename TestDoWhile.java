@@ -1,46 +1,24 @@
 import java.util.Scanner;
 
+
 public class TestDoWhile {
+    static char typeCpte ='\0';
+    static long numeroCpte = 0;
+    static double val_courante = 0.0, taux = 0.0;
+    static Scanner lectureClavier = new Scanner(System.in);
     public static void main(String[] args) {
         byte choix;
         char typeCpte ='\0';
-        double val_courante = 0.0, taux = 0.0;
         long numeroCpte = 0, numeroLu = 0 ;
-        Scanner lectureClavier = new Scanner(System.in);
-
         do {
            choix = menuPrincipal();
             switch (choix){
-                case 1 : do{
-                    System.out.print("Type du compte [Types possibles :" );
-                    System.out.print("C(ourant), J(oint), E(pargne)] :");
-                    typeCpte = lectureClavier.next().charAt(0);
-                }while(typeCpte != 'C' && typeCpte != 'J' && typeCpte != 'E');
-                System.out.println("Numero de compte : ");
-                numeroCpte = lectureClavier.nextLong();
-                System.out.println(" Premiere valeurs créditée");
-                val_courante = lectureClavier.nextDouble();
-                if ( typeCpte == 'E'){
-                    System.out.println(" Taux de placement : ");
-                    taux = lectureClavier.nextDouble();
-                }
+                case 1 :
+                    creerCpte(TestDoWhile.lectureClavier);
                 break;
                 case 2 :
-                    System.out.println(" Entrez votre numero de compte ");
-                    numeroLu = lectureClavier.nextLong();
-                    if(numeroLu == numeroCpte) {
-
-                        if (typeCpte == 'E') {
-                            System.out.println("compte épargne n° " + numeroLu + " ,taux de placement est de" + taux + " %");
-                            System.out.println(" votre solde est de : " + val_courante + " €");
-                        } else if (typeCpte == 'C') {
-                            System.out.println(" compte courant n° " + numeroLu + " solde : " + val_courante + " €");
-                        } else if (typeCpte == 'J') {
-                            System.out.println(" Compte joint n° " + numeroLu + " solde : " + val_courante + " €");
-                        }
-                    }else {
-                        System.out.println(" votre compte n'est pas  reconnu par le system ");
-                    }
+                    afficherCpte(TestDoWhile.typeCpte,TestDoWhile.numeroCpte,TestDoWhile.taux,TestDoWhile.val_courante);
+                    break;
                 case 3 :
                     System.out.println("Option non programmée");
                     break;
@@ -82,5 +60,35 @@ public class TestDoWhile {
     public static void sortir(){
         System.out.println(" Aurevoir et à bientôt ");
         System.exit(0);
+    }
+    public static void afficherCpte(char type,long numeroDuCompte,double tauxEpargne, double solde){
+
+            if (type == 'E') {
+                System.out.println("compte épargne n° " + numeroDuCompte + " ,taux de placement est de" + tauxEpargne + " %");
+                System.out.println(" votre solde est de : " + solde + " €");
+            } else if (type == 'C') {
+                System.out.println(" compte courant n° " + numeroDuCompte + " solde : " + solde + " €");
+            } else if (type == 'J') {
+                System.out.println(" Compte joint n° " + numeroDuCompte + " solde : " + solde + " €");
+            } else {
+            System.out.println(" votre compte n'est pas  reconnu par le system ");
+        }
+
+    }
+    public static void creerCpte (Scanner lectureClavier){
+
+        do{
+            System.out.print("Type du compte [Types possibles :" );
+            System.out.print("C(ourant), J(oint), E(pargne)] :");
+            TestDoWhile.typeCpte = lectureClavier.next().charAt(0);
+        }while(TestDoWhile.typeCpte != 'C' && TestDoWhile.typeCpte != 'J' && TestDoWhile.typeCpte != 'E');
+        System.out.println("Numero de compte : ");
+        TestDoWhile.numeroCpte = lectureClavier.nextLong();
+        System.out.println(" Premiere valeurs créditée");
+        TestDoWhile.val_courante = lectureClavier.nextDouble();
+        if ( TestDoWhile.typeCpte == 'E'){
+            System.out.println(" Taux de placement : ");
+            TestDoWhile.taux = lectureClavier.nextDouble();
+        }
     }
 }
