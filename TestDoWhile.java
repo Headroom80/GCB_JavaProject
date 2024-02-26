@@ -8,8 +8,6 @@ public class TestDoWhile {
     static Scanner lectureClavier = new Scanner(System.in);
     public static void main(String[] args) {
         byte choix;
-        char typeCpte ='\0';
-        long numeroCpte = 0, numeroLu = 0 ;
         do {
            choix = menuPrincipal();
             switch (choix){
