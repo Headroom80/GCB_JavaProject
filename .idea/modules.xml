@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bibliotheque/Bibliotheque.iml" filepath="$PROJECT_DIR$/Bibliotheque/Bibliotheque.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExercicesLivreJava/ExercicesLivreJava.iml" filepath="$PROJECT_DIR$/ExercicesLivreJava/ExercicesLivreJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GCBselonMoi/GCBselonMoi.iml" filepath="$PROJECT_DIR$/GCBselonMoi/GCBselonMoi.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Projet/Projet.iml" filepath="$PROJECT_DIR$/Projet/Projet.iml" />
       <module fileurl="file://$PROJECT_DIR$/cercle/cercle.iml" filepath="$PROJECT_DIR$/cercle/cercle.iml" />
