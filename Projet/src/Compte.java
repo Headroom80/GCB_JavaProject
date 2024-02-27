@@ -4,6 +4,11 @@ public class Compte {
     private char type;
     private String typeCpte="";
     private String numeroCpte = "";
+
+    public void setVal_courante(double val_courante) {
+        this.val_courante = val_courante;
+    }
+
     private double val_courante, taux = 0.0;
 
     public String quelNumerodeCompte(){

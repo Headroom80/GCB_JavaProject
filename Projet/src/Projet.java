@@ -3,10 +3,13 @@ import java.util.Scanner;
 public class Projet {
 
 
+
     public static void main(String[] args) {
+
         Compte instanceCpte = new Compte();
         Scanner lectureClavier = new Scanner(System.in);
         LigneComptable instanceLc = new LigneComptable();
+        String numeroLu = "";
 
         byte choix;
         do {
@@ -16,13 +19,25 @@ public class Projet {
                     instanceCpte.creerCpte(lectureClavier);
                     break;
                 case 2:
-                    instanceCpte.AfficherCpte();
+                    System.out.println("Quel compte souhaiter vous  afficher ? : ");
+
+                    numeroLu = lectureClavier.next();
+
+                    if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
+                        instanceCpte.AfficherCpte();
+                    }else{
+                        System.out.println("Votre  compte n'est pas reconnu par notre system");
+                    }
                     break;
                 case 3:
-                    instanceLc.CreerLigneComptable(lectureClavier);
-                    if(instanceCpte.quelNumerodeCompte().equals(instanceLc.getCpteDebite())){
-                        instanceCpte.-= instanceLc.montant;
+                    System.out.println("Pour quel compte souhaitez vous entrer une nouvelle ligne comptable ? :");
+                    numeroLu = lectureClavier.next();
+                    if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
+                        instanceLc.CreerLigneComptable(lectureClavier,instanceCpte);
+                    }else{
+                        System.out.println("Veuillez entrer un numéro de compte valide.");
                     }
+
                     break;
                 case 4:
                     sortir();
@@ -31,7 +46,7 @@ public class Projet {
                     aLaide();
             }
         } while (choix != 4);
-        System.out.println("Au revoir et à bient0t");
+        System.out.println("Au revoir et à bientot");
         System.exit(0);
     }
 
