@@ -6,7 +6,7 @@ public class Projet {
 
     public static void main(String[] args) {
 
-        Compte instanceCpte = new Compte();
+        Compte instanceCpte = null;
         Scanner lectureClavier = new Scanner(System.in);
         LigneComptable instanceLc = new LigneComptable();
         String numeroLu = "";
@@ -16,13 +16,14 @@ public class Projet {
             choix = menuPrincipal();
             switch (choix) {
                 case 1:
-                    instanceCpte.creerCpte(lectureClavier);
+                    instanceCpte = new Compte(lectureClavier);
                     break;
                 case 2:
                     System.out.println("Quel compte souhaiter vous  afficher ? : ");
 
                     numeroLu = lectureClavier.next();
 
+                    assert instanceCpte != null;
                     if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
                         instanceCpte.AfficherCpte();
                     }else{
@@ -81,5 +82,7 @@ public class Projet {
         System.out.println(" Aurevoir et à bientôt ");
         System.exit(0);
     }
-
+//    public String ControleType(){
+//
+//    }
 }

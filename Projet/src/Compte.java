@@ -18,7 +18,7 @@ public class Compte {
         return val_courante;
     }
 
-    public void creerCpte(Scanner lectureClavier) {
+    public  Compte(Scanner lectureClavier) {
 
         do {
             System.out.print("Type du compte [Types possibles :");
@@ -58,6 +58,9 @@ public class Compte {
         } else {
             System.out.println(" votre compte n'est pas  reconnu par le system ");
         }
+    }
+    public Compte(){
+
     }
 /*    private String controleType(){
         char tmpc;
