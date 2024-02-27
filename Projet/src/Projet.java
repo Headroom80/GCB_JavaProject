@@ -20,8 +20,8 @@ public class Projet {
                     break;
                 case 3:
                     instanceLc.CreerLigneComptable(lectureClavier);
-                    if(instanceCpte.numeroCpte == instanceLc.cpteDebite){
-                        instanceCpte.val_courante -= instanceLc.montant;
+                    if(instanceCpte.quelNumerodeCompte().equals(instanceLc.getCpteDebite())){
+                        instanceCpte.-= instanceLc.montant;
                     }
                     break;
                 case 4:
