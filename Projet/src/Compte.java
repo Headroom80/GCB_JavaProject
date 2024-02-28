@@ -4,6 +4,12 @@ public class Compte {
     private char type;
     private String typeCpte="";
     private String numeroCpte = "";
+    private LigneComptable [] lignes;
+    public static final int NBLigne = 10;
+    private int nbReelLigne = -1;
+    public double getVal_courante(){
+        return val_courante;
+    }
 
     public void setVal_courante(double val_courante) {
         this.val_courante = val_courante;
@@ -19,6 +25,7 @@ public class Compte {
     }
 
     public  Compte(Scanner lectureClavier) {
+        lignes = new LigneComptable[nbReelLigne];
 
         do {
             System.out.print("Type du compte [Types possibles :");
@@ -58,9 +65,25 @@ public class Compte {
         } else {
             System.out.println(" votre compte n'est pas  reconnu par le system ");
         }
-    }
-    public Compte(){
+        System.out.println("Vos dernieres transactions : ");
 
+
+        System.out.println();
+    }
+    public void creerLigne(){
+        if(nbReelLigne < NBLigne -1){
+        nbReelLigne++;
+        lignes[nbReelLigne] = new LigneComptable();
+        }else{
+            nbReelLigne--;
+            decalerLesLignes();
+            lignes[nbReelLigne] = new LigneComptable();
+        }
+        val_courante = val_courante + lignes[nbReelLigne].getMontant();
+    }
+    private void decalerLesLignes() {
+        for(int i = 1; i < NBLigne ; i++)
+            lignes[i-1] = lignes[i];
     }
 /*    private String controleType(){
         char tmpc;
