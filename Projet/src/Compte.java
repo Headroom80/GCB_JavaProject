@@ -4,9 +4,9 @@ public class Compte {
     private char type;
     private String typeCpte="";
     private String numeroCpte = "";
-    private LigneComptable [] lignes;
+    public LigneComptable [] lignes;
     public static final int NBLigne = 10;
-    private int nbReelLigne = -1;
+    public int nbReelLigne;
     public double getVal_courante(){
         return val_courante;
     }
@@ -24,8 +24,8 @@ public class Compte {
         return val_courante;
     }
 
-    public  Compte(Scanner lectureClavier) {
-        lignes = new LigneComptable[nbReelLigne];
+    public  Compte() {
+        Scanner lectureClavier = new Scanner(System.in);
 
         do {
             System.out.print("Type du compte [Types possibles :");
@@ -53,11 +53,14 @@ public class Compte {
             System.out.println(" Taux de placement : ");
             taux = lectureClavier.nextDouble();
         }
+        lignes = new LigneComptable[NBLigne];
+        nbReelLigne = -1;
     }
     public void AfficherCpte(){
         if (typeCpte.contains("epargne")) {
             System.out.println("compte épargne n° " + numeroCpte + " ,taux de placement est de" + taux + " %");
             System.out.println(" votre solde est de : " + val_courante + " €");
+            System.out.println("Vos dernieres transaction : ");
         } else if (type == 'C') {
             System.out.println(" compte courant n° " + numeroCpte + " solde : " + val_courante + " €");
         } else if (type == 'J') {
@@ -66,15 +69,17 @@ public class Compte {
             System.out.println(" votre compte n'est pas  reconnu par le system ");
         }
         System.out.println("Vos dernieres transactions : ");
-
-
-        System.out.println();
+        if(nbReelLigne >= 0){
+            for( var i = 0 ; i <= nbReelLigne; i++){
+                System.out.println(lignes[i]);
+            }
+        }
     }
     public void creerLigne(){
-        if(nbReelLigne < NBLigne -1){
         nbReelLigne++;
-        lignes[nbReelLigne] = new LigneComptable();
-        }else{
+        if (nbReelLigne < NBLigne)
+            lignes[nbReelLigne] = new LigneComptable();
+        else {
             nbReelLigne--;
             decalerLesLignes();
             lignes[nbReelLigne] = new LigneComptable();

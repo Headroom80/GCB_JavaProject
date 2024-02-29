@@ -8,7 +8,6 @@ public class Projet {
 
         Compte instanceCpte = null;
         Scanner lectureClavier = new Scanner(System.in);
-        LigneComptable instanceLc = new LigneComptable();
         String numeroLu = "";
 
         byte choix;
@@ -16,7 +15,7 @@ public class Projet {
             choix = menuPrincipal();
             switch (choix) {
                 case 1:
-                    instanceCpte = new Compte(lectureClavier);
+                    instanceCpte = new Compte();
                     break;
                 case 2:
                     System.out.println("Quel compte souhaiter vous  afficher ? : ");
@@ -34,7 +33,7 @@ public class Projet {
                     System.out.println("Pour quel compte souhaitez vous entrer une nouvelle ligne comptable ? :");
                     numeroLu = lectureClavier.next();
                     if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
-                        instanceLc.CreerLigneComptable(lectureClavier,instanceCpte);
+                        instanceCpte.creerLigne();
                     }else{
                         System.out.println("Veuillez entrer un numéro de compte valide.");
                     }
@@ -45,6 +44,9 @@ public class Projet {
                     break;
                 case 5:
                     aLaide();
+                case 6:
+                    System.out.println(instanceCpte.nbReelLigne);
+                    System.out.println(instanceCpte.lignes[0]);
             }
         } while (choix != 4);
         System.out.println("Au revoir et à bientot");
