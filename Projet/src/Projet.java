@@ -1,54 +1,60 @@
 import java.util.Scanner;
 
 public class Projet {
-
-
-
     public static void main(String[] args) {
-
-        Compte instanceCpte = null;
+        ListeCompte instanceListe = new ListeCompte();
         Scanner lectureClavier = new Scanner(System.in);
         String numeroLu = "";
+        FichierCompte fichier = new FichierCompte();
+        if (fichier.ouvrir("L")) {
+            instanceListe = fichier.lire();
+            fichier.fermer();
+        }
+        if (instanceListe == null) {
+            instanceListe = new ListeCompte();
+        }
 
         byte choix;
         do {
             choix = menuPrincipal();
             switch (choix) {
                 case 1:
-                    instanceCpte = new Compte();
+                    System.out.print (" Compte Epargne (o/n) : ");
+                    if (lectureClavier.next().charAt(0) == 'o')
+                        instanceListe.AjouterUnCompte("E");
+                    else
+                        instanceListe.AjouterUnCompte("A");
                     break;
                 case 2:
                     System.out.println("Quel compte souhaiter vous  afficher ? : ");
 
                     numeroLu = lectureClavier.next();
-
-                    assert instanceCpte != null;
-                    if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
-                        instanceCpte.AfficherCpte();
-                    }else{
-                        System.out.println("Votre  compte n'est pas reconnu par notre system");
-                    }
+                    instanceListe.rechercherUnCompte(numeroLu);
                     break;
                 case 3:
-                    System.out.println("Pour quel compte souhaitez vous entrer une nouvelle ligne comptable ? :");
-                    numeroLu = lectureClavier.next();
-                    if (numeroLu.equalsIgnoreCase(instanceCpte.quelNumerodeCompte())){
-                        instanceCpte.creerLigne();
-                    }else{
-                        System.out.println("Veuillez entrer un numéro de compte valide.");
-                    }
-
+                    instanceListe.afficheLesComptes();
                     break;
                 case 4:
-                    sortir();
+                    System.out.print ( "Pour quel compte souhaitez vous creer une ligne ? : ");
+                    numeroLu = lectureClavier.next();
+                    instanceListe.ajouteUneLigne(numeroLu);
                     break;
                 case 5:
-                    aLaide();
+                    System.out.print ( "Quel compte souhaitez vous supprimer ? : ");
+                    numeroLu = lectureClavier.next();
+                    instanceListe.supprimeUnCompte(numeroLu);
+                    break;
                 case 6:
-                    System.out.println(instanceCpte.nbReelLigne);
-                    System.out.println(instanceCpte.lignes[0]);
+                    System.out.println("Sauvegarde des donnees dans Compte.dat");
+                    fichier.ouvrir("E");
+                    fichier.ecrire(instanceListe);
+                    fichier.fermer();
+                    sortir();
+                case 7:
+                    aLaide();
+                    break;
             }
-        } while (choix != 4);
+        } while (choix != 6);
         System.out.println("Au revoir et à bientot");
         System.exit(0);
     }
@@ -56,14 +62,16 @@ public class Projet {
     public static byte menuPrincipal() {
         byte tmp;
         Scanner lectureClavier = new Scanner(System.in);
-        System.out.println(" 1. Création d'un compte");
-        System.out.println(" 2. Affichage d'un compte");
-        System.out.println(" 3. Ecrire une ligne comptable");
-        System.out.println(" 4. Sortir");
-        System.out.println(" 5. De l'aide");
+        System.out.println("1. Creation d'un compte");
+        System.out.println("2. Affichage d'un compte");
+        System.out.println("3. Affichage de tous les comptes");
+        System.out.println("4. Ecrire une ligne comptable");
+        System.out.println("5. Supprimer un compte ");
+        System.out.println("6. Sortir");
+        System.out.println("7. De l'aide");
         System.out.println();
-        System.out.print(" Votre choix : ");
-        tmp = lectureClavier.nextByte();
+        System.out.print("Votre choix : ");
+        tmp  = lectureClavier.nextByte();
         return tmp;
     }
 
@@ -84,7 +92,4 @@ public class Projet {
         System.out.println(" Aurevoir et à bientôt ");
         System.exit(0);
     }
-//    public String ControleType(){
-//
-//    }
 }

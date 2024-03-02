@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AWT/AWT.iml" filepath="$PROJECT_DIR$/AWT/AWT.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bibliotheque/Bibliotheque.iml" filepath="$PROJECT_DIR$/Bibliotheque/Bibliotheque.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CH11Correction/CH11Correction.iml" filepath="$PROJECT_DIR$/CH11Correction/CH11Correction.iml" />
       <module fileurl="file://$PROJECT_DIR$/CorrectionCh7/CorrectionCh7.iml" filepath="$PROJECT_DIR$/CorrectionCh7/CorrectionCh7.iml" />
       <module fileurl="file://$PROJECT_DIR$/CorrectionCh8/CorrectionCh8.iml" filepath="$PROJECT_DIR$/CorrectionCh8/CorrectionCh8.iml" />
       <module fileurl="file://$PROJECT_DIR$/CorrectionHashmap/CorrectionHashmap.iml" filepath="$PROJECT_DIR$/CorrectionHashmap/CorrectionHashmap.iml" />

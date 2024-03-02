@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Compte {
-    private char type;
+public class Compte  implements Serializable {
+    private String type;
     private String typeCpte="";
     private String numeroCpte = "";
     public LigneComptable [] lignes;
@@ -15,7 +16,7 @@ public class Compte {
         this.val_courante = val_courante;
     }
 
-    private double val_courante, taux = 0.0;
+    private double val_courante;
 
     public String quelNumerodeCompte(){
         return numeroCpte;
@@ -26,44 +27,34 @@ public class Compte {
 
     public  Compte() {
         Scanner lectureClavier = new Scanner(System.in);
-
-        do {
-            System.out.print("Type du compte [Types possibles :");
-            System.out.print("(C)ourant), (J)oint), E(pargne)] :");
-            type = lectureClavier.next().toUpperCase().charAt(0);
-            switch (type) {
-                case 'C':
-                    typeCpte = "courant";
-                    break;
-                case 'J':
-                    typeCpte = "joint";
-                    break;
-                case 'E':
-                    typeCpte = "epargne";
-                    break;
-            }
-
-        } while (!typeCpte.contains("joint") && !typeCpte.contains("courant") && !typeCpte.contains("epargne"));
-        lectureClavier.nextLine();
+        type = controleType();
         System.out.println("Numero de compte : ");
         numeroCpte = lectureClavier.nextLine();
         System.out.println(" Premiere valeurs créditée");
         val_courante = lectureClavier.nextDouble();
-        if (typeCpte.contains("epargne")) {
-            System.out.println(" Taux de placement : ");
-            taux = lectureClavier.nextDouble();
-        }
         lignes = new LigneComptable[NBLigne];
         nbReelLigne = -1;
     }
+    public  Compte( String type)  {
+        Scanner lectureClavier = new Scanner(System.in);
+        if (type.equalsIgnoreCase("Epargne")) {
+            typeCpte = type;
+            System.out.print("Numero du compte : ");
+            numeroCpte = lectureClavier.next();
+            val_courante = controleValinit();
+            lignes = new LigneComptable[NBLigne];
+            nbReelLigne = -1;
+        }
+    }
+
     public void AfficherCpte(){
-        if (typeCpte.contains("epargne")) {
-            System.out.println("compte épargne n° " + numeroCpte + " ,taux de placement est de" + taux + " %");
+        if (typeCpte.contains("Epargne")) {
+            System.out.println("compte épargne n° " + numeroCpte + " ,taux de placement est de" + " %");
             System.out.println(" votre solde est de : " + val_courante + " €");
             System.out.println("Vos dernieres transaction : ");
-        } else if (type == 'C') {
+        } else if (type.equalsIgnoreCase("Courant")) {
             System.out.println(" compte courant n° " + numeroCpte + " solde : " + val_courante + " €");
-        } else if (type == 'J') {
+        } else if (type.equalsIgnoreCase("Joint") ) {
             System.out.println(" Compte joint n° " + numeroCpte + " solde : " + val_courante + " €");
         } else {
             System.out.println(" votre compte n'est pas  reconnu par le system ");
@@ -90,25 +81,30 @@ public class Compte {
         for(int i = 1; i < NBLigne ; i++)
             lignes[i-1] = lignes[i];
     }
-/*    private String controleType(){
-        char tmpc;
-        String tmps = "Courant";
+    private String controleType()		{
         Scanner lectureClavier = new Scanner(System.in);
-
+        char tmpc;
+        String tmpS = "";
         do {
-            System.out.println("Type du compte possible : C(ourant), J(oint), E(pargne)  : ");
+            System.out.print("Type du compte [Types possibles :" );
+            System.out.print("C(ourant), J(oint)] : ");
             tmpc = lectureClavier.next().charAt(0);
-
-        }while (tmpc != 'C' && tmpc != 'J' && tmpc != 'E');
+        } while ( tmpc != 'C' && tmpc != 'J' );
         switch (tmpc) {
-            case'C': tmps = "Courant";
-                    break;
-            case'J':tmps = "Joint";
-                    break;
-            case 'E': tmps = "Epargne";
-                    break;
-
+            case 'C' : tmpS = "Courant";
+                break;
+            case 'J' : tmpS = "Joint";
+                break;
         }
-        return tmps;
-        }*/
+        return tmpS;
+    }
+    private double controleValinit()	 {
+        Scanner lectureClavier = new Scanner(System.in);
+        double tmp, tmpval;
+        do {
+            System.out.print("Valeur initiale du compte : ");
+            tmpval= lectureClavier.nextDouble();
+        } while ( tmpval <= 0);
+        return tmpval;
+    }
     }

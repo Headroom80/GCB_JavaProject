@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class LigneComptable {
+public class LigneComptable implements Serializable {
     private LocalDate date;
     protected String cpteDebite;
     private String cpteCredite;

@@ -1,8 +1,8 @@
 /*
 #	Le livre de Java, premier langage
 #	A. Tasso
-#	Chapitre 10 : Collectionner un nombre indéterminé d'objets 
-#	Exercice   : Support pour réaliser les exercices 10.2 et 10.7
+#	Chapitre 10 : Collectionner un nombre indï¿½terminï¿½ d'objets 
+#	Exercice   : Support pour rï¿½aliser les exercices 10.2 et 10.7
 #	Fichier    : Forme.java
 #	Class      : Forme
 */
@@ -20,7 +20,7 @@ public class Forme {
     couleur = verifier(nc, 0, couleurMax);
  }
  
- public Forme() {	
+ public Forme() {	 
  	x = verifier("en X", 0, largeurEcran);
         y = verifier("en Y", 0, hauteurEcran);
 	couleur = verifier("couleur", 0, couleurMax);;
