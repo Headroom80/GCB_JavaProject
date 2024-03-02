@@ -1,11 +1,6 @@
 public class Function {
     public static void main(String[] args) {
-        int nbCb = 25, nbPayments = 100;
-        System.out.println(moyenne(nbCb,nbPayments));
+        for (int i=0; i<3; i++) System.out.println(++i);
 
-    }
-    public static float moyenne(int cb,int nbPay){
-        float moyPay = ((float) cb / nbPay) * 100;
-        return moyPay;
     }
 }

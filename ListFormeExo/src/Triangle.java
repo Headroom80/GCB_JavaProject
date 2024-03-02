@@ -1,8 +1,8 @@
 /*
 #	Le livre de Java, premier langage
 #	A. Tasso
-#	Chapitre 10 : Collectionner un nombre indéterminé d'objets 
-#	Exercice   : Support pour réaliser les exercices 10.2 et 10.7
+#	Chapitre 10 : Collectionner un nombre indï¿½terminï¿½ d'objets 
+#	Exercice   : Support pour rï¿½aliser les exercices 10.2 et 10.7
 #	Fichier    : Triangle.java
 #	Class      : Triangle
 */
@@ -39,5 +39,9 @@ public class Triangle extends Forme {
 	xC = verifier(xC+nx, 0, largeurEcran);
  	yC = verifier(yC+ny, 0, hauteurEcran);		
  }
+    @Override
+    public String toString() {
+        return " Triangle A"+ x;
+    }
  
 } // Fin de la classe Ellipse

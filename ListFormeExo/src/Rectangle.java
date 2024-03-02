@@ -1,8 +1,8 @@
 /*
 #	Le livre de Java, premier langage
 #	A. Tasso
-#	Chapitre 10 : Collectionner un nombre indéterminé d'objets 
-#	Exercice   : Support pour réaliser les exercices 10.2 et 10.7
+#	Chapitre 10 : Collectionner un nombre indï¿½terminï¿½ d'objets 
+#	Exercice   : Support pour rï¿½aliser les exercices 10.2 et 10.7
 #	Fichier    : Rectangle.java
 #	Class      : Rectangle
 */
@@ -28,6 +28,10 @@ public class Rectangle extends Forme {
   System.out.println("Largeur du rectangle : " + largeur);
   System.out.println("Hauteur du rectangle : " + hauteur);
  }
+    @Override
+    public String toString() {
+        return " Rectangle " + largeur;
+    }
  
 
 } // Fin de la classe Ellipse

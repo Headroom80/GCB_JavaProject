@@ -22,6 +22,8 @@ public class FaireDesFormesGeometriques {
 //	    T.afficher();
 //            T.deplacer(300, 300);
 //	    T.afficher();
+ListeDeFormes  lDf = new ListeDeFormes();
+lDf.ajouterForme();
 		
 	}
 }

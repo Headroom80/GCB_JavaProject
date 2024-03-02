@@ -1,8 +1,8 @@
 /*
 #	Le livre de Java, premier langage
 #	A. Tasso
-#	Chapitre 10 : Collectionner un nombre indéterminé d'objets 
-#	Exercice   : Support pour réaliser les exercices 10.2 et 10.7
+#	Chapitre 10 : Collectionner un nombre indï¿½terminï¿½ d'objets 
+#	Exercice   : Support pour rï¿½aliser les exercices 10.2 et 10.7
 #	Fichier    : Cercle.java
 #	Class      : Cercle
 */
@@ -22,5 +22,9 @@ public class Cercle extends Forme {
   super.afficher();
   System.out.println("Rayon : " + rayon);
  }
+    @Override
+    public String toString() {
+        return " Cercle C"+rayon;
+    }
 
 } 

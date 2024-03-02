@@ -1,31 +1,59 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ListeDeFormes {
 
     private ArrayList<Forme> listeFormes;
+    int listeIndex = 0;
 
     public ListeDeFormes(){
         listeFormes = new ArrayList<Forme>();
     }
-    public void ajouterForme(Forme f){
+    public void ajouterForme(){
         Scanner lectureClavier = new Scanner(System.in);
-        char tmpc;
-        System.out.println("Ajouter un T(riangle), C(ercle), R(ectangle)");
-        tmpc = lectureClavier.next().toUpperCase().charAt(0);
-        switch (tmpc){
-            case 'T':
-                listeFormes.add(0,f.)
-                break;
-            case 'C':
-                break;
-            case 'R':
-                break;
-            default:
-                System.out.println("Option non reconnue");
-                break;
+        int tmpc;
+        Forme tmpf;
+        do {
+            System.out.println("1: ajouter un Triangle : ");
+            System.out.println("2: ajouter un Cercle : ");
+            System.out.println("3: ajouter un Rectangle : ");
+            System.out.println("4: afficher la liste : ");
+            tmpc = lectureClavier.nextInt();
+            switch (tmpc) {
+                case 1:
+                    tmpf = new Triangle();
+                    listeFormes.add(listeIndex, tmpf);
+                    listeIndex++;
+                    break;
+                case 2:
+                    tmpf = new Cercle();
+                    listeFormes.add(listeIndex, tmpf);
+                    listeIndex++;
+                    break;
+                case 3:
+                    tmpf = new Rectangle();
+                    listeFormes.add(listeIndex, tmpf);
+                    listeIndex++;
+                    break;
+                case 4:
+                    afficherListe();
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("Option non reconnue");
+                    break;
+            }
+        }while (tmpc != 5);
+
+
+    }
+    public void afficherListe(){
+        for(Forme forme: listeFormes){
+            System.out.println(forme);
         }
-
-
     }
 }
